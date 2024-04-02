@@ -7,7 +7,7 @@ const __dirname = import.meta.dirname;
 export default defineConfig({
   plugins: [eslint({ exclude: ['**/node_modules/**', '**/dist/**', '**/*.min.*'] })],
   build: {
-    minify: false,
+    minify: true,
     manifest: true,
     emptyOutDir: false,
     outDir: 'dist',
