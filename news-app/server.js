@@ -17,10 +17,10 @@ app
   .listen(3000);
 
 app.get('/', async (req, res) => {
-  // const movieData = await getMovies();
+  const newsData = await getNews();
 
-  return res.send(renderTemplate('views/index.liquid'));
-  
+  return res.send(renderTemplate('views/index.liquid', {newsData}));
+
   // return res.send(renderTemplate('views/index.liquid', { title: 'Movies', movieData }));
   // return res.send(renderTemplate('views/index.liquid', { title: 'Home' }));
 });
@@ -31,14 +31,13 @@ app.get('/', async (req, res) => {
 //   return res.send(renderTemplate('views/detail.liquid', { title: 'Movie', movie }));
 // });
 
-// const getMovies = async () => {
-//   const response = await fetch(`https://api.themoviedb.org/3/trending/all/day?language=en-US&api_key=${process.env.MOVIEDB_TOKEN}`);
-//   const movieData = await response.json();
-
-
-//   console.log('movieData', movieData);
-//   return movieData;
-// };
+const getNews = async () => {
+  const apiKey = process.env.NEWS_TOKEN;
+  const response = await fetch(`https://newsapi.org/v2/top-headlines?country=nl&apiKey=${apiKey}`);
+  const newsData = await response.json();
+  // console.log('newsData', newsData);
+  return newsData;
+};
 
 
 const renderTemplate = (template, data) => {
