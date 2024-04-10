@@ -35,7 +35,7 @@ const getNews = async () => {
   const apiKey = process.env.NEWS_TOKEN;
   const response = await fetch(`https://newsapi.org/v2/top-headlines?country=nl&apiKey=${apiKey}`);
   const newsData = await response.json();
-  // console.log('newsData', newsData);
+  // console.log('newsData', newsData);/
   return newsData;
 };
 

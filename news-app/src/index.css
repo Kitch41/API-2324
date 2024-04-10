@@ -1,17 +1,41 @@
 /* load reset css */
-@import 'reset.css';
-@import "typography.css";
+@import url('https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import 'css/reset.css';
+@import "css/header.css";
+@import "css/footer.css";
+@import "css/homecontent.css";
 
 @import "../views/detail.css";
 
-body {
-  background-color: #1a1a1a;
-  color: #fff;
+:root {
+  --background-color: var(--backgroundhf-lightmode);
+  --backgroundhf-darkmode: #717171;
+  --backgroundhf-lightmode: #3944A8;
+  --accent : #388FF4;
+
+  @media (prefers-color-scheme: dark) {
+    --background-color: var(--backgroundhf-darkmode);
+  }
+
 }
 
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  grid-gap: 1rem;
-  padding: 1rem;
+body {
+  background-color: white;
+  color: black;
+}
+
+h1, h2, h3, h4, h5, a {
+  font-family: poppins, sans-serif;
+}
+
+p {
+  font-family: Newsreader;
+}
+
+h1 {
+  font-size: 1.5rem;
+}
+
+.content {
+  margin-inline: max(1.5rem, ((100% - 75rem) / 2));
 }

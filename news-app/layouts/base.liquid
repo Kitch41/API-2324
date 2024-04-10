@@ -1,11 +1,11 @@
 <html lang="en">
 <head>
   {% block head %}
-    <title>My First Page</title>
+    <title>News Allround</title>
   {% endblock %}
   {% if NODE_ENV == "development" %}
     {% comment %} <script type="module" src="/@vite/client" defer></script> {% endcomment %}
-    <script type="module" src="./src/index.js" defer></script>
+    <script type="module" src="http://localhost:5173/src/index.js" defer></script>
   {% else %}
   <link rel="stylesheet" href="/main.css">
   <script type="module" src="/main.js" defer></script>
@@ -17,6 +17,8 @@
 </head>
 
 <body>
+  {% block header %}{% endblock %}
   {% block content %}{% endblock %}
+  {% block footer %}{% endblock %}
 </body>
 </html>
