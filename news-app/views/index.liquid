@@ -1,80 +1,71 @@
 {% layout "layouts/base.liquid" %}
 
-{% block header %}{% include 'components/includes/_header.liquid' %}{% endblock %}
+{% block header %}
+  {% include 'components/includes/_header.liquid' %}
+{% endblock %}
 
 {% block content %}
-
 <main id="indexmain">
   <section id="contenthead">
     <h1>Welcome To AniNews</h1>
-    <p>AniNews is the anime platoform for you if your looking for the latest anime and news!</p>
+    <p>AniNews is the anime platform for you if you're looking for the latest anime and news!</p>
   </section>
   <section id="mainimage">
-
-      <h2>This Season</h2>
-
-      <div class="owl-carousel owl-theme">
-
-
+    <h2>This Season's Anime</h2>
+    <div class="owl-carousel owl-theme owl-carousel-seasonal">
       {% assign count = 0 %}
-
-      {% for article in newsData.data %}
+      {% for article in animeData.data %}
         {% if count < 5 %}
           <div class="item">
             <img src="{{ article.images.jpg.image_url }}" alt="{{ article.title }}">
             <div class="carousel-text">
               <h3>{{ article.title }}</h3>
               <p>{{ article.synopsis | truncate: 400, '...' }}</p>
-              {% if article.episodes %}
-              <p>Episodes: {{ article.episodes }}</p>
-              {% else %}
-              <p>Episodes: T.B.D.</p>
-              {% endif %}
-
-              {% if article.status %}
-                <p>Status: {{ article.status }}</p>
-                {% else %}
-                <p>Status: T.B.D.</p>
-                {% endif %}
-
-                {% if article.score %}
-                  <p>Score: {{ article.score }}</p>
-                  {% else %}
-                  <p>Score: T.B.D.</p>
-                  {% endif %}
-
+              <p>Episodes: {% if article.episodes %}{{ article.episodes }}{% else %}T.B.D.{% endif %}</p>
+              <p>Status: {% if article.status %}{{ article.status }}{% else %}T.B.D.{% endif %}</p>
+              <p>Score: {% if article.score %}{{ article.score }}{% else %}T.B.D.{% endif %}</p>
               {% assign formatted_title = article.title | replace: ' ', '-' | downcase %}
-              <a class="btn" href="/anime/{{ formatted_title }}">{{ "Read More" }}</a>
+              <a class="btn" href="/anime/{{ formatted_title }}">Read More</a>
             </div>
           </div>
           {% assign count = count | plus: 1 %}
         {% endif %}
       {% endfor %}
-
-        
-        
     </div>
   </section>
 
+  <section id="scheduled">
+    <h2>Scheduled Anime</h2>
+    <div id="days">
+      <a href="#" class="btn active" data-day="monday">Mon</a>
+      <a href="#" class="btn" data-day="tuesday">Tue</a>
+      <a href="#" class="btn" data-day="wednesday">Wed</a>
+      <a href="#" class="btn" data-day="thursday">Thu</a>
+      <a href="#" class="btn" data-day="friday">Fri</a>
+      <a href="#" class="btn" data-day="saturday">Sat</a>
+      <a href="#" class="btn" data-day="sunday">Sun</a>
+    </div>
+    <div id="schedule-titles">
+      <div id="loading-schedule">
+        <p>Loading Data</p>
+        <div class="loader"></div>
+      </div>
+      <ul id="schedulelist">
+        {% comment %} {% for data in scheduleData.data %}
+          <li class="schedule-li schedule-monday">
+            <p>{{ data.broadcast.time }}</p>
+            <p>{{ data.title }}</p>
+            {% assign formatted_title = data.title | replace: ' ', '-' | downcase %}
+            <a class="btn" href="/anime/{{ formatted_title }}">See Now</a>
+          </li>
+        {% endfor %} {% endcomment %}
+      </ul>
+    </div>
+  </section>
 </main>
 
 {% endblock %}
 
-{% block footer %}{% include 'components/includes/_footer.liquid' %}{% endblock %}
-
-
-
-{% comment %} <ul class="grid">
-  {% for movie in movieData.results %}
-    {% if movie.original_title %}
-      {% assign mov = movie.original_title %}
-    {% else %}
-      {% assign mov = movie.name %}
-    {% endif %}
-    <li>
-      <a href="/movie/{{ movie.id }}">
-        {% render 'components/poster/poster.liquid', movie: movie %}
-      </a>
-    </li>
-  {% endfor %}
-</ul> {% endcomment %}
+{% block footer %}
+  {% include 'components/includes/_footer.liquid' %}
+{% endblock %}

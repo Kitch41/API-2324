@@ -9,29 +9,8 @@
 
 <ul class="newscontainer">
 
-{% comment %} <li>
-  <h2>Titel</h2>
-  <img src="http://localhost:5173/src/images/news.svg">
-  <p>Description that is not too long but also not to short</p>
-  <a href="#">Lees meer</a>
-</li>
 
-<li>
-  <h2>Titel</h2>
-  <img src="http://localhost:5173/src/images/news.svg">
-  <p>Description that is not too long but also not to short</p>
-  <a href="#">Lees meer</a>
-</li>
-
-<li>
-  <h2>Titel</h2>
-  <img src="http://localhost:5173/src/images/news.svg">
-  <p>Description that is not too long but also not to short</p>
-  <a href="#">Lees meer</a>
-</li> {% endcomment %}
-
-
-{% for article in newsData.data %}
+{% for article in animeData.data %}
 
   {% render 'components/card/card.liquid', article: article%}
 {% endfor %}

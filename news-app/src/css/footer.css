@@ -76,6 +76,12 @@ nav.footermenu {
     }
 }
 
+@media screen and (max-width: 600px) {
+    .footer {
+        display: none;
+    }
+}
+
 
 .footer{
     background:var(--background-color);

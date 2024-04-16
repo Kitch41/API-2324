@@ -6,6 +6,7 @@
 @import "css/homecontent.css";
 @import "css/topanime.css";
 @import "css/manga.css";
+@import "css/anime.css";
 
 
 
@@ -16,6 +17,9 @@
   --backgroundhf-darkmode: #2e2d2b;
   --backgroundhf-lightmode: #3944A8;
   --accent : #008080;
+  --dotscolor2 : var(--accent);
+  --dotscolor1 : #008080a9;
+  --wrapper: max(1.5rem, ((100% - 75rem) / 2));
 
   @media (prefers-color-scheme: dark) {
     --background-color: var(--backgroundhf-darkmode);
@@ -41,7 +45,7 @@ h1 {
 }
 
 .content {
-  margin-inline: max(1.5rem, ((100% - 75rem) / 2));
+  margin-inline: var(--wrapper);
 }
 
 a.btn {
