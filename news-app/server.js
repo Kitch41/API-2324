@@ -17,27 +17,48 @@ app
   .listen(3000);
 
 app.get('/', async (req, res) => {
-  const newsData = await getNews();
-
+  const newsData = await fetchSeasonNow();
   return res.send(renderTemplate('views/index.liquid', {newsData}));
-
-  // return res.send(renderTemplate('views/index.liquid', { title: 'Movies', movieData }));
-  // return res.send(renderTemplate('views/index.liquid', { title: 'Home' }));
 });
 
-// app.get('/movie/:id/', async (req, res) => {
-//   const movieId = req.params.id;
-//   const movie = await fetch(`https://api.themoviedb.org/3/movie/${movieId}?api_key=${process.env.MOVIEDB_TOKEN}`).then(res => res.json());
-//   return res.send(renderTemplate('views/detail.liquid', { title: 'Movie', movie }));
-// });
+app.get('/manga', async (req, res) => {
+  return res.send(renderTemplate('views/manga.liquid'));
+});
+
+app.get('/anime', async (req, res) => {
+  return res.send(renderTemplate('views/anime.liquid', { title: 'Home' }));
+});
+
+app.get('/topanime', async (req, res) => {
+  const newsData = await getNews();
+  return res.send(renderTemplate('views/topanime.liquid', {newsData}));
+});
+
+app.get('/genres', async (req, res) => {
+  const newsData = await getNews();
+  return res.send(renderTemplate('views/topanime.liquid', {newsData}));
+});
+
+app.get('/anime/:slug/', async (req, res) => {
+  const animename = req.params.slug;
+  const article = await fetch(`https://api.jikan.moe/v4/anime?q=${animename}&sfw`).then(res => res.json());
+  return res.send(renderTemplate('views/detail.liquid', { article }));
+});
 
 const getNews = async () => {
-  const apiKey = process.env.NEWS_TOKEN;
-  const response = await fetch(`https://newsapi.org/v2/top-headlines?country=nl&apiKey=${apiKey}`);
+  // const apiKey = process.env.NEWS_TOKEN;
+  const response = await fetch(`https://api.jikan.moe/v4/top/anime?limit=25`);
   const newsData = await response.json();
-  // console.log('newsData', newsData);/
+  // console.log('newsData', newsData);
   return newsData;
 };
+
+const fetchSeasonNow = async() => {
+  const response = await fetch('https://api.jikan.moe/v4/seasons/now');
+  const newsData = await response.json();
+  // console.log('newsData', newsData);
+  return newsData;
+}
 
 
 const renderTemplate = (template, data) => {

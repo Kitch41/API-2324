@@ -1,0 +1,84 @@
+.content {
+    
+
+    & h1 {
+        margin-top: 1em;
+        border-bottom: 2px solid var(--background-color);
+        padding-bottom: 0.5em;
+    }
+
+    & ul {
+        display: flex;
+        flex-direction: column;
+        gap: 1em;
+        margin: 1em 0 5em 0;
+        & li {
+            background-color: #D9D9D9;
+            border-radius: 10px;
+            padding: 1em;
+            
+            display: flex;
+            flex-direction: column;
+            gap: 1em;
+
+            @media (min-width: 600px) {
+                display: grid;
+                grid-template-columns: 1fr 2fr;
+                grid-template-rows: 3em 1fr 1fr;
+                grid-column-gap: 20px;
+                grid-row-gap: 0px;
+            }
+
+            & h2 {
+                font-size: 1.3rem;
+
+                @media (min-width: 600px) {
+                    grid-area: 1 / 1 / 2 / 3;
+                    height: fit-content;
+                }
+            }
+
+            & p {
+                @media (min-width: 600px) {
+                    grid-area: 2 / 2 / 3 / 3;
+                }
+            }
+
+            & a {
+                text-decoration: none;
+                color: white;
+                background-color: var(--background-color);
+                padding: 1em;
+                width: fit-content;
+                height: fit-content;
+                text-align: center;
+                border-radius: 5px ;
+                transition: 0.4s;
+                align-self: flex-end;
+
+                @media (min-width: 600px) {
+                    grid-area: 3 / 2 / 4 / 3;
+                }
+                
+
+                &:hover {
+                    scale: 1.1;
+                    box-shadow: 3px 3px 10px 1px grey;
+
+                }
+            }
+
+            & img {
+                width: 100%;
+                max-height: 20em;
+                object-fit: cover;
+
+                @media screen and (min-width: 600px) {
+                    max-height: 10em;
+                    grid-area: 2 / 1 / 4 / 2;
+                }
+            }
+        }
+    }
+
+}

@@ -1,0 +1,24 @@
+{% comment %} <div class="poster">
+  <img src="https://image.tmdb.org/t/p/w500/{{ movie.poster_path }}" alt="Movieposter for {{ mov }}">
+  <span class="poster__title">{% if movie.title %}{{ movie.title }}{% else %}{{ movie.name }}{% endif %}</span>
+</div> {% endcomment %}
+
+<li class="article">
+  <h2>{{ article.rank }}. {{ article.title }}</h2>
+  {% if article.images %}
+    <img src="{{ article.images.jpg.image_url }}" alt="{{ article.title }}">
+  {% endif %}
+  {% if article.synopsis %}
+    <p>{{ article.synopsis | truncate: 400, '...'  }}</p>
+  {% else %}  
+    <p>No Description or Content Found</p>
+  {% endif %}
+  {% assign formatted_title = article.title | replace: ' ', '-' | downcase %}
+
+  <a href="/anime/{{ formatted_title }}">{{ "Read More" }}</a>
+
+</li>
+
+{% comment %} <a href="/movie/{{ movie.id }}">
+{% render 'components/poster/poster.liquid', movie: movie %}
+</a> {% endcomment %}

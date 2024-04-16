@@ -1,0 +1,61 @@
+{% layout "layouts/base.liquid" %}
+
+{% block header %}{% include 'components/includes/_header.liquid' %}{% endblock %}
+
+{% block content %}
+<section class="content">
+
+  <h1>Top Anime</h1>
+
+<ul class="newscontainer">
+
+{% comment %} <li>
+  <h2>Titel</h2>
+  <img src="http://localhost:5173/src/images/news.svg">
+  <p>Description that is not too long but also not to short</p>
+  <a href="#">Lees meer</a>
+</li>
+
+<li>
+  <h2>Titel</h2>
+  <img src="http://localhost:5173/src/images/news.svg">
+  <p>Description that is not too long but also not to short</p>
+  <a href="#">Lees meer</a>
+</li>
+
+<li>
+  <h2>Titel</h2>
+  <img src="http://localhost:5173/src/images/news.svg">
+  <p>Description that is not too long but also not to short</p>
+  <a href="#">Lees meer</a>
+</li> {% endcomment %}
+
+
+{% for article in newsData.data %}
+
+  {% render 'components/card/card.liquid', article: article%}
+{% endfor %}
+
+</ul>
+</section>
+
+{% endblock %}
+
+{% block footer %}{% include 'components/includes/_footer.liquid' %}{% endblock %}
+
+
+
+{% comment %} <ul class="grid">
+  {% for movie in movieData.results %}
+    {% if movie.original_title %}
+      {% assign mov = movie.original_title %}
+    {% else %}
+      {% assign mov = movie.name %}
+    {% endif %}
+    <li>
+      <a href="/movie/{{ movie.id }}">
+        {% render 'components/poster/poster.liquid', movie: movie %}
+      </a>
+    </li>
+  {% endfor %}
+</ul> {% endcomment %}
