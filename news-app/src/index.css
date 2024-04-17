@@ -9,8 +9,7 @@
 @import "css/anime.css";
 
 
-
-@import "../views/detail.css";
+@import "css/detail.css";
 
 :root {
   --background-color: var(--backgroundhf-lightmode);
@@ -28,8 +27,13 @@
 }
 
 body {
-  background-color: white;
+  background-image: url(http://localhost:5173/src/images/background.jpg);
+  background-size: cover;
+  background-position: 60% 50%;
+  background-repeat: no-repeat;
   color: black;
+  max-width: 100vw;
+  overflow-x: hidden;
 }
 
 h1, h2, h3, h4, h5, a {

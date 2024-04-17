@@ -6,15 +6,90 @@
 
 {% block content %}
 
-<main>
+<main id="details">
 
-<section>
+<h1>{{ detailAnime.title }}</h1>
+<section id="left">
+  <div>
+    <img src="{{ detailAnime.images.jpg.large_image_url }}">
+  </div>
+  <section>
+    <h2>Alternative Titles</h2>
+    {% for title in detailAnime.titles %}
+    <p>{{ title.type }}: {{ title.title }}</p>
 
+    {% endfor %}
+  </section>
+  <section>
+    <h2>Information</h2>
+    <p>Type: {{ detailAnime.type }}</p>
+    <p>Episodes: {{ detailAnime.episodes }}</p>
+    <p>Status: {{ detailAnime.status }}</p>
+    <p>Aired: {{ detailAnime.aired.string }}</p>
+    <p>Premiered: {{ detailAnime.season }} {{ detailAnime.year }}</p>
+    <p>Broadcast: {{ detailAnime.broadcast.string }}</p>
+    <p>Producers: {% for producer in detailAnime.producers %} <a href="{{ producer.url }}">{{ producer.name }}</a> {% endfor %}</p>
+    <p>Licensors: {% for licensor in detailAnime.licensors %} <a href="{{ licensor.url }}">{{ licensor.name }}</a> {% endfor %}</p>
+    <p>Studios: {% for studio in detailAnime.studios %} <a href="{{ studio.url }}">{{ studio.name }}</a> {% endfor %}</p>
+    <p>Source: {{ detailAnime.source }}</p>
+    <p>Genres: {% for genre in detailAnime.genres %} <a href="{{ genre.url }}">{{ genre.name }}</a> {% endfor %}</p> {%comment %} Link to own genres later {%endcomment%}
+    <p>Demographics: {% for demo in detailAnime.demographics %} <a href="{{ demo.url }}">{{ demo.name }}</a> {% endfor %}</p>
+    <p>Duration: {{ detailAnime.duration }}</p>
+    <p>Rating: {{ detailAnime.rating }}</p>
+  </section>
+  <section>
+    <h2>Statistics</h2>
+    <p>Score: {{ detailAnime.score }}</p>
+    <p>Rank: #{{ detailAnime.rank }}</p>
+    <p>Popularity: #{{ detailAnime.popularity }}</p>
+    <p>Members: {{ detailAnime.members }}</p>
+    <p>Favorites: {{ detailAnime.favorites }}</p>
+  </section>
+</section>
+
+<section id="right">
+  <section id="topsection">
+    <div id="info">
+      <section id="box">
+        <h2>Score</h2>
+        <p>{{ detailAnime.score }}</p>
+        <p>{{ detailAnime.scored_by }} Users</p>
+      </section>
+      <div>
+          <div>
+            <p>Ranked <b># {{ detailAnime.rank }}</b></p>
+            <p>Popularity <b># {{ detailAnime.popularity }}</b></p>
+            <p>Members {{ detailAnime.members }}</p>
+          </div>
+          <div>
+            <a>{{ detailAnime.season }} {{ detailAnime.year }}</a>
+            <a>{{ detailAnime.type }}</a>
+            <a href="{{ detailAnime.studios[0].url }}">{{ detailAnime.studios[0].name }}</a>
+          </div>
+      </div>
+    </div>
+    <div id="video">
+      <iframe src="{{ detailAnime.trailer.embed_url }}" frameborder="0" allowfullscreen></iframe>
+    </div>
+    
+  </section>
+  <section>
+    <h2>Synopsis</h2>
+    <p>{{ detailAnime.synopsis }}</p>
+  </section>
+  <section>
+    {% if detailAnime.background %}
+    <h2>Background</h2>
+    <p>{{ detailAnime.background }}</p>
+    {% endif %}
+  </section>
 
 </section>
 
-
 </main>
+<script>
+  console.log({{ detailAnime | json }});
+</script>
 
 {% endblock %}
 

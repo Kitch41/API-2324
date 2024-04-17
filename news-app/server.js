@@ -58,8 +58,12 @@ app.get('/anime/top', async (req, res) => {
 app.get('/anime/:slug', async (req, res) => {
   try {
     const { slug } = req.params;
+    console.log(slug)
     const searchedAnime = await fetch(`https://api.jikan.moe/v4/anime?q=${slug}&sfw=true`).then(res => res.json());
-    return res.send(renderTemplate('views/detail.liquid', { searchedAnime }));
+    // console.log(searchedAnime)
+    const detailAnime = searchedAnime.data[0];
+    console.log(detailAnime)
+    return res.send(renderTemplate('views/detail.liquid', { detailAnime }));
   } catch (error) {
     console.error('Error fetching anime details:', error);
     return res.status(500).send('Internal Server Error');
@@ -89,6 +93,12 @@ const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
 const fetchAnimeSeasonNow = async () => {
   const response = await fetch('https://api.jikan.moe/v4/seasons/now');
+  const animeData = await response.json();
+  return animeData;
+};
+
+const fetchRecommended = async () => {
+  const response = await fetch('https://api.jikan.moe/v4/recommendations/anime');
   const animeData = await response.json();
   return animeData;
 };

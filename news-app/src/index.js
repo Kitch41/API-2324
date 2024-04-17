@@ -2,7 +2,7 @@ import './index.css';
 
 console.log('Hello, world!');
 
-function handleDayClick(event, dayElement) {
+function handleDayClick (event, dayElement) {
   event.preventDefault(); // Prevent default link behavior
 
   const days = document.querySelectorAll('#days a');
@@ -19,7 +19,7 @@ function handleDayClick(event, dayElement) {
   delayShowingSchedule(day);
 }
 
-async function delayShowingSchedule(day) {
+async function delayShowingSchedule (day) {
   const scheduleList = document.querySelector('#schedulelist');
   const loading = document.querySelector('#loading-schedule');
 
@@ -30,7 +30,7 @@ async function delayShowingSchedule(day) {
     const apiUrl = `https://api.jikan.moe/v4/schedules?filter=${day}`;
     const response = await fetch(apiUrl);
     const responseData = await response.json();
-    console.log("Fetched Data:", responseData.data); // Log the object directly
+    console.log('Fetched Data:', responseData.data); // Log the object directly
 
     const scheduleData = responseData.data;
 
@@ -48,7 +48,7 @@ async function delayShowingSchedule(day) {
   }
 }
 
-function renderSchedule(scheduleData, scheduleList) {
+function renderSchedule (scheduleData, scheduleList) {
     scheduleList.innerHTML = '';
   
     const renderedTitles = new Set(); // Set to track rendered titles
@@ -86,11 +86,11 @@ function renderSchedule(scheduleData, scheduleList) {
     console.log('Schedule rendered successfully.');
   }
 
-function renderEmptySchedule(scheduleList) {
+function renderEmptySchedule (scheduleList) {
   scheduleList.innerHTML = '<li>No schedule available</li>';
 }
 
-function initializeSchedule() {
+function initializeSchedule () {
   const days = document.querySelectorAll('#days a');
 
   days.forEach(day => {
