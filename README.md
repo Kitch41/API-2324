@@ -1,83 +1,74 @@
-# API @cmda-minor-web 2023 - 2024
+# API @cmda-minor-web 2023 - 2024 Stef
 
-Het web is een geweldige plek en de beschikbare technologieën ervan zijn vandaag de dag krachtiger dan ooit tevoren.
-De kracht van het web ligt in het feit dat het een platform is dat voor iedereen beschikbaar is en dat het gebaseerd is
-op open standaarden. De technologieën worden ontworpen en gespecificeerd op basis van consensus en zijn niet in handen
-van één enkele entiteit.
+Dit is mijn API Project. in dit project gebruik ik de Jikan API om een anime app te maken.
 
-Desondanks zijn er veel mensen en bedrijven die vinden dat het internet niet voldoet aan hun behoeften. Dit blijkt uit
-de pogingen van grote techbedrijven om hun eigen afgesloten ecosystemen te creëren. Ze streven hiermee naar controle over
-zowel de gebruikerservaring als de gegenereerde data.
+Dit project is heel erg groot en iets te groot om in 4 weken af te kunnen ronden maar ik ga het dynamisch en modulair bouwen dat elke functie beoordeeld kan worden en dan kijk ik hoever ik kom
 
-**In dit vier weken durende vak zullen we de kracht van het web ervaren en kijken hoe we (mobiele) web apps kunnen maken die
-net zo aantrekkelijk zijn als native mobiele apps. We beginnen met het maken van een server-side gerenderde applicatie
-waarbij we geleidelijk de gebruikerservaring verbeteren met relevante beschikbare web API's.**
+
 
 ## Doelen
 
-Na deze cursus zul je:
+Ik heb een aantal doelen die ik wil halen met dit blok. daarnaast heb ik ook nog een aantal dingen die ik ga doen als ik extra tijd heb. Dit zijn een heleboel dingen aangezien deze api best wel groot en uitgebreid is.
 
-- In staat zijn om een server-side gerenderde applicatie te maken.
-- In staat zijn om een enerverende gebruikerservaring te creëren.
-- Een breder begrip hebben van het web en zijn mogelijkheden.
+Mijn Hoofd doelen zijn:
 
-## Opdracht
+* Home Pagina
+* Detailpagina
+* Top anime pagina
 
-In dit vak zullen we een van de meest voorkomende app-concepten van vandaag gebruiken en ontdekken dat we deze kunnen
-maken met moderne webtechnologie.
+Als ik extra tijd heb dan ga ik dit maken:
 
-Voorbeelden:
+* Schedule (wanneer afleveringen uitkomen)
+* Manga pagina's
+* Genres
+* Sorteren
+* Zoeken naar anime
 
-- Maak je eigen streamingplatform (Netflix/Spotify).
-- Maak je eigen doom-scroll-app (Instagram/TikTok).
-- Maak je eigen chatapplicatie (WhatsApp/Signal).
-- Een andere app die je zelf leuk vindt...
+## Week 1
 
-Voorbeeld content API's die je kan gebruiken:
+Ik begon mijn project met een andere api dan dat ik mee ben geeindigd. Dit kwam doordat de API's die ik wilde gebruiken of niet gratis of niet goed genoeg waren. Mijn idee was om een doomscroll nieuwsapp te maken maar dit is niet gelukt. Toen ik besefte dat het niet ging lukken ben ik snel op zoek gegaan naar een nieuwe API en ik had al snel een nieuwe API gevonden. JIKAN. Deze api is een onofficiele api die informatie van Myanimelist haalt en die in jsons zet. het is een grote en uitgebreide API waar je heel veel mee kan.
 
-- [MovieDB API](https://developer.themoviedb.org/reference/intro/getting-started)
-- [Rijksmuseum API](https://data.rijksmuseum.nl/object-metadata/api/)
-- [Spotify API](https://developer.spotify.com/documentation/web-api)
+Dit nam helaas wel het grootste gedeelte van de week op. Dus hier heb ik niet veel progressie gemaakt
 
-Voorbeelden van Web API's die je kan gebruiken:
+## Week 2
 
-- [Page Transition API voor animaties tusse npagina's](https://developer.mozilla.org/en-US/docs/Web/API/Page_Transitions_API)
-- [Web Animations API voor complexe animaties](https://developer.mozilla.org/en-US/docs/Web/API/Web_Animations_API)
-- [Service Worker API voor installable web apps](https://developer.mozilla.org/en-US/docs/Web/API/Service_Worker_API)
-- [Web Push API voor push notifications](https://developer.mozilla.org/en-US/docs/Web/API/Push_API)
-- [Server sent events voor realtime functionaliteit](https://developer.mozilla.org/en-US/docs/Web/API/Server-sent_events)
-- [Geolocation API](https://developer.mozilla.org/en-US/docs/Web/API/Geolocation_API)
-- [Web Speech API](https://developer.mozilla.org/en-US/docs/Web/API/Web_Speech_API)
-- [Web Share API voor sharen van content binnen de context van de gebruiker](https://developer.mozilla.org/en-US/docs/Web/API/Navigator/share)
-- ...
+In week 2 ben ik echt begonnen met werken. Ik begon met de homepage netjes maken en vooral uitzoeken hoe ik werk met liquid en met de api. Ik heb een boel uren lopen worstelen met liquid en hoe ik de api data goed binnen krijg.
 
-De lijst is eindeloos, laat je vooral inspireren op de overzichtspagina van [MDN](https://developer.mozilla.org/en-US/docs/Web/API).
+Ook kwam ik erachter dat mijn api 3 calls per seconde als max heeft. wat geen probleem moet zijn maar er moet wel over nagedacht worden.
 
-## Beoordeling
+Ik heb ook goed over de structuur en het doel an mijn app nagedacht. Ik wilde een app maken waar je anime's en alle informatie over specifieke anime kunt bekijken. 
 
-Je zal beoordeeld worden op basis van je code, creativiteit en je gedocumenteerde proces. Om het vak te halen zal je aan
-de 3 criteria hieronder moeten voldoen. Een hoger cijfer kan je halen door verder te gaan dan de basis.
+Het eerste wat ik ging bouwen was een topanime pagina. Hier zie je de top 25 beste anime op het moment. Deze pagina wilde ik genereren gebaseerd op de anime die ik van de api binnenkrijg. Dit heb ik afgerond in week 2 en daarop ben ik verder gaan bouwen
 
-| Tekortkomingen | Criterium                                                                                                                                                                                                                                 | Verbeteringen |
-|:---------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:--------------|
-|                | *Project* - Je app werkt en is online beschikbaar. Daarnaast heb je je concept, technologieen, gebruikte Web API's en proces duidelijk gedocumenteerd in je `README.md`.                                                                  |               |
-|                | *Functionaliteit* - Je hebt minstens een overzicht en een detailpagina. Hoe meer dynamischer je functionaliteit.hoe beter.                                                                                                                |               |
-|                | *Enhancements* - Je laat zien dat je begrijpt hoe het web werkt door meerdere Web API's te gebruiken om een zo aantrekkelijk mogelijke gebruikerservaring neer te zetten. Je gebruikt je eigen creativiteit om iets uniks neer te zetten. |               |
 
-## Planning
+## Week 3
 
-| Planning                   | Maandag             | Dinsdag               | Vrijdag                |
-|----------------------------|---------------------|-----------------------|------------------------|
-| Week 1 - Kickoff & concept | Pasen               | Introductie en uitleg | Feedback gesprekken    |
-| Week 2 - The baseline      | College + workshops | Workshops             | Feedback gesprekken    |
-| Week 3 - Enhance           | College + workshops | Workshops             | Feedback gesprekken    |
-| Week 4 - Enhance & wrap up | Individuele vragen  | Individuele vragen    | Beoordelingsgesprekken |
+Week 3 begon goed. Ik heb hier heel veel werk uitgevoerd.
+
+Ik begon met heel veel verschillende pagina's bouwen en de basisstructuur uitwerken. Ook liep ik erg tegen een aantal dingen aan met Vite. bijvoorbeeld het linken van css en js. Dit heb ik werkend gekregen op de dev structuur. 
+
+Ik heb hier de schedules gebouwd op de homepagina. Dit heb ik op heel veel verschillende manieren geprobeerd maar uiteindelijk was de beste oplossing om een fetch te doen elke keer als er een dag aangeklikt wordt. Dit is het handigste aangezien er maar max 3 calls per seconde uitgevoerd kunnen worden.
+
+Week 3 was voor mij voor de rest een korte week aangezien ik midden in de week een operatie had en dus niet op school aanwezig kon zijn.
+
+## Week 4
+
+Week 4 was vooral afronden. Puntjes op de i zetten en zorgen dat alles klaarstaat voor gebruik.
+
+
+## Conclusie
+
+Mijn eindproduct ben ik best wel blij mee. Het is iets waar ik zelf ook nog wel eens wat aan kan hebben.
+Ik vond het een leuk project om aan te werken en de laatste API was 100 keer beter dan de nieuwsapi.
+
 
 ## Resources
 
-- Om serverside te kunnen renderen maak ik gebruik van [TinyHttp](https://github.com/tinyhttp), maar je kan ook kiezen voor [Express](https://expressjs.com/).
-- Voor templating maak ik gebruik van [LiquidJS](https://liquidjs.com/), maar je kan ook kiezen voor [EJS](https://ejs.co/).
-- Voor build tooling(CSS en JS) maak ik gebruik van [Vite](https://vitejs.dev/).
+- Owlcarousel [https://owlcarousel2.github.io/OwlCarousel2/]
 
-Voel je vrij om je eigen technolgieën te kiezen, zolang je maar kan uitleggen waarom je deze hebt gekozen en zolang
-je geen gebruik maakt van een framework zoals React, Vue, Svelte, Angular, etc. 
+Ik heb owlcarousel gebruikt omdat ik dit persoonlijk mega handig vind in gebruik en doet wat ik al kan veel beter. je kunt het gebruiken om nette en responsive carousels te bouwen die automatisch scrollen en zowel op telefoon als laptop werken.
+voor owlcarousel heb je ook JQuery nodig maar dit heb ik zo goed als niet gebruikt bij andere dingen.
+
+- Vite[https://vitejs.dev/]
+- Liquid[https://shopify.github.io/liquid/]
+- Tinyhttp[https://github.com/tinyhttp/tinyhttp]
