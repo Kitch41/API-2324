@@ -6,10 +6,10 @@
   {% if NODE_ENV == "development" %}
     
     {% else %}
-    <link rel="stylesheet" href="/main.css">
+    <link rel="stylesheet" href="/src/index.js">
   {% endif %}
-  {% block styles %}{% endblock %}
-  {% block scripts %}{% endblock %}
+  {% comment %} {% block styles %}{% endblock %}
+  {% block scripts %}{% endblock %} {% endcomment %}
 
   <!--FONT AWESOME-->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -33,7 +33,7 @@
   {% comment %} <script type="module" src="/@vite/client" defer></script> {% endcomment %}
   <script type="module" src="http://localhost:5173/src/index.js" defer></script>
 {% else %}
-<script type="module" src="/main.js" defer></script>
+<script type="module" src="/src/index.js" defer></script>
 <script type="nomodule" src="/polyfills-legacy.js" defer></script>
 <script type="nomodule" src="/main-legacy.js" defer></script>
 {% endif %}
